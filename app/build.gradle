@@ -1,9 +1,19 @@
-
 apply plugin: 'com.android.application'
 
 apply plugin: 'kotlin-android'
 
 apply plugin: 'kotlin-android-extensions'
+
+buildscript {
+    repositories {
+        maven { url 'https://maven.fabric.io/public' }
+    }
+    dependencies {
+        classpath ClassPaths.fabricPlugin
+    }
+}
+
+apply plugin: 'io.fabric'
 
 android {
     compileSdkVersion Versions.compilerSdk
@@ -22,16 +32,20 @@ android {
         }
     }
     flavorDimensions "mode"
-    productFlavors{
-        develop{
+    productFlavors {
+        develop {
             dimension "mode"
             applicationIdSuffix ".develop"
             versionNameSuffix "-develop"
         }
-        full{
+        full {
             dimension "mode"
         }
     }
+}
+
+repositories {
+    maven { url 'https://maven.fabric.io/public' }
 }
 
 dependencies {
@@ -39,6 +53,9 @@ dependencies {
     implementation Libs.kotlinStdLib
     implementation Libs.supportAppcompat
     implementation Libs.supportRecycler
+    implementation (Libs.crashlytics) {
+        transitive = true;
+    }
     testImplementation Libs.junit
     androidTestImplementation Libs.testRunner
     androidTestImplementation Libs.espressoCore
