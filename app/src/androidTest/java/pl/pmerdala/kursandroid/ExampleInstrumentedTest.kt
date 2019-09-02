@@ -1,4 +1,4 @@
-package com.pmerdala.kursandroid
+package pl.pmerdala.kursandroid
 
 import android.support.test.InstrumentationRegistry
 import android.support.test.runner.AndroidJUnit4

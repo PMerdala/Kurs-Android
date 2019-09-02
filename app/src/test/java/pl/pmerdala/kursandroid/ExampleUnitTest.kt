@@ -1,4 +1,4 @@
-package com.pmerdala.kursandroid
+package pl.pmerdala.kursandroid
 
 import org.junit.Test
 
