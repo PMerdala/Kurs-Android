@@ -4,11 +4,12 @@ object Versions{
     const val junit = "4.12"
     const val testRunner = "1.0.2"
     const val espressoCore = "3.0.2"
+    const val gradlePlugin = "3.5.0"
     const val compilerSdk =28
     const val minSdk = 17
     const val targetSdk = 28
-    val versionCode = 1
-    val versionName = "1.0"
+    const val versionCode = 1
+    const val versionName = "1.0"
 }
 
 object Libs {
@@ -19,4 +20,9 @@ object Libs {
     const val testRunner = "com.android.support.test:runner:${Versions.testRunner}"
     const val espressoCore =
         "com.android.support.test.espresso:espresso-core:${Versions.espressoCore}"
+}
+
+object ClassPaths{
+    const val gradlePlugin = "com.android.tools.build:gradle:${Versions.gradlePlugin}"
+    const val kotlinGradlePlugin = "org.jetbrains.kotlin:kotlin-gradle-plugin:${Versions.kotlin}"
 }
