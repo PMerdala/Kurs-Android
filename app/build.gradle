@@ -6,6 +6,8 @@ apply plugin: 'kotlin-android-extensions'
 
 buildscript {
     repositories {
+        mavenCentral()
+        google()
         maven { url 'https://maven.fabric.io/public' }
     }
     dependencies {
@@ -14,6 +16,8 @@ buildscript {
 }
 
 apply plugin: 'io.fabric'
+
+apply plugin: 'kotlin-kapt'
 
 android {
     compileSdkVersion Versions.compilerSdk
@@ -42,6 +46,10 @@ android {
             dimension "mode"
         }
     }
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8
+        targetCompatibility JavaVersion.VERSION_1_8
+    }
 }
 
 repositories {
@@ -53,10 +61,13 @@ dependencies {
     implementation Libs.kotlinStdLib
     implementation Libs.supportAppcompat
     implementation Libs.supportRecycler
-    implementation (Libs.crashlytics) {
+    implementation(Libs.crashlytics) {
         transitive = true;
     }
     implementation Libs.timber
+    implementation Libs.butterKnife
+    kapt Libs.butterKnifeAnnotationProcessor
+    debugImplementation Libs.leakcanary
     testImplementation Libs.junit
     androidTestImplementation Libs.testRunner
     androidTestImplementation Libs.espressoCore

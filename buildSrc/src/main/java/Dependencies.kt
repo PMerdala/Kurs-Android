@@ -8,6 +8,8 @@ object Versions{
     const val fabricPlugin = "1.+"
     const val timber = "4.7.1"
     const val crashlytics = "2.10.1@aar"
+    const val leakcanary = "1.5.4"
+    const val butterKnife = "8.8.1"
     const val compilerSdk =28
     const val minSdk = 17
     const val targetSdk = 28
@@ -25,6 +27,9 @@ object Libs {
         "com.android.support.test.espresso:espresso-core:${Versions.espressoCore}"
     const val crashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
     const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
+    const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakcanary}"
+    const val butterKnife = "com.jakewharton:butterknife:${Versions.butterKnife}"
+    const val butterKnifeAnnotationProcessor  = "com.jakewharton:butterknife-compiler:${Versions.butterKnife}"
 }
 
 object ClassPaths{
