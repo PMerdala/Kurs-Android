@@ -13,6 +13,5 @@ abstract class BaseActivity : AppCompatActivity() {
         super.onCreate(savedInstanceState)
         setContentView(layoutId)
         ButterKnife.bind(this)
-        Timber.d(this.localClassName + " onCreate done")
     }
 }
