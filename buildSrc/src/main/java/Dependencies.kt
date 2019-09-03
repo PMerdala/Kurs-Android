@@ -6,6 +6,7 @@ object Versions{
     const val espressoCore = "3.0.2"
     const val gradlePlugin = "3.5.0"
     const val fabricPlugin = "1.+"
+    const val timber = "4.7.1"
     const val crashlytics = "2.10.1@aar"
     const val compilerSdk =28
     const val minSdk = 17
@@ -23,6 +24,7 @@ object Libs {
     const val espressoCore =
         "com.android.support.test.espresso:espresso-core:${Versions.espressoCore}"
     const val crashlytics = "com.crashlytics.sdk.android:crashlytics:${Versions.crashlytics}"
+    const val timber = "com.jakewharton.timber:timber:${Versions.timber}"
 }
 
 object ClassPaths{
