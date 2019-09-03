@@ -1,27 +1,23 @@
 package pl.pmerdala.kursandroid.feature.splash.ui
 
 import android.os.Bundle
-import android.support.v7.app.AppCompatActivity
 import android.widget.ImageView
 import butterknife.BindView
-import butterknife.ButterKnife
 import butterknife.OnClick
 import pl.pmerdala.kursandroid.R
+import pl.pmerdala.kursandroid.feature.commons.ui.BaseActivity
 import pl.pmerdala.kursandroid.feature.splash.SplashContract
-import pl.pmerdala.kursandroid.feature.splash.navigation.SplashRouter
-import pl.pmerdala.kursandroid.feature.splash.presentation.SplashPresenter
 import timber.log.Timber
 
-class SplashActivity : AppCompatActivity(), SplashContract.View {
+class SplashActivity : BaseActivity(), SplashContract.View {
+
+    override val layoutId: Int = R.layout.activity_splash
 
     @BindView(R.id.splash_image)
     lateinit var splashImage: ImageView
 
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
-        setContentView(R.layout.activity_splash)
-        ButterKnife.bind(this)
-        Timber.d("SplashAvtivity onCreate done")
     }
 
     override fun onDestroy() {
