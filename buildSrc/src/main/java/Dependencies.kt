@@ -10,6 +10,7 @@ object Versions{
     const val crashlytics = "2.10.1@aar"
     const val leakcanary = "1.5.4"
     const val butterKnife = "8.8.1"
+    const val dagger = "2.24"
     const val compilerSdk =28
     const val minSdk = 17
     const val targetSdk = 28
@@ -30,6 +31,11 @@ object Libs {
     const val leakcanary = "com.squareup.leakcanary:leakcanary-android:${Versions.leakcanary}"
     const val butterKnife = "com.jakewharton:butterknife:${Versions.butterKnife}"
     const val butterKnifeAnnotationProcessor  = "com.jakewharton:butterknife-compiler:${Versions.butterKnife}"
+    const val dagger = "com.google.dagger:dagger:${Versions.dagger}"
+    const val daggerCompiler = "com.google.dagger:dagger-compiler:${Versions.dagger}"
+    const val daggerAndroid = "com.google.dagger:dagger-android:${Versions.dagger}"
+    const val daggerAndroidSupport = "com.google.dagger:dagger-android-support:${Versions.dagger}"
+    const val daggerAndroidProcessor = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
 }
 
 object ClassPaths{

@@ -67,6 +67,11 @@ dependencies {
     implementation Libs.timber
     implementation Libs.butterKnife
     kapt Libs.butterKnifeAnnotationProcessor
+    api Libs.dagger
+    kapt Libs.daggerCompiler
+    api Libs.daggerAndroid
+//    api Libs.daggerAndroidSupport
+    kapt Libs.daggerAndroidProcessor
     debugImplementation Libs.leakcanary
     testImplementation Libs.junit
     androidTestImplementation Libs.testRunner
