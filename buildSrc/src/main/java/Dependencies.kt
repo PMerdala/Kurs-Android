@@ -10,7 +10,7 @@ object Versions{
     const val crashlytics = "2.10.1@aar"
     const val leakcanary = "1.5.4"
     const val butterKnife = "8.8.1"
-    const val dagger = "2.24"
+    const val dagger = "2.14.1"
     const val compilerSdk =28
     const val minSdk = 17
     const val targetSdk = 28
