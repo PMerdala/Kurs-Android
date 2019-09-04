@@ -20,7 +20,9 @@ class AppModule {
 @Component(
     modules = [
         AndroidInjectionModule::class,
-        AppModule::class]
+        AppModule::class,
+        ActivityBinderModule::class
+    ]
 )
 interface AppComponent {
 
