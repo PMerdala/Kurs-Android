@@ -1,16 +1,24 @@
 package pl.pmerdala.kursandroid.feature.splash.presentation
 
 import pl.pmerdala.kursandroid.feature.splash.SplashContract
+import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
 import timber.log.Timber
 
-class SplashPresenter(val view: SplashContract.View, val router: SplashContract.Router) :
+class SplashPresenter(
+    val router: SplashContract.Router,
+    val configuration: Configuration
+) :
     SplashContract.Presenter {
 
-    override fun initialize() {
-        Timber.d("Presenter is initialized!")
-    }
+    override fun initialize() = Unit
 
-    override fun clear() {
-        Timber.d("Presenter is cleared")
+    override fun clear() = Unit
+
+    override fun visible() {
+        if (configuration.isUserLoggedIn()) {
+            router.navigateToRepositories()
+        } else {
+            router.navigateToLogin()
+        }
     }
 }

@@ -6,6 +6,7 @@ import pl.pmerdala.kursandroid.feature.splash.SplashContract
 import pl.pmerdala.kursandroid.feature.splash.navigation.SplashRouter
 import pl.pmerdala.kursandroid.feature.splash.presentation.SplashPresenter
 import pl.pmerdala.kursandroid.feature.splash.ui.SplashActivity
+import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
 
 @Module
 class SplashModule {
@@ -13,9 +14,10 @@ class SplashModule {
     @Provides
     fun router(): SplashContract.Router = SplashRouter()
 
+
     @Provides
     fun presenter(
-        activity: SplashActivity,
-        router: SplashContract.Router
-    ): SplashContract.Presenter = SplashPresenter(activity, router)
+        router: SplashContract.Router,
+        configuration:Configuration
+    ): SplashContract.Presenter = SplashPresenter(router,configuration)
 }

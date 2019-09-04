@@ -10,8 +10,11 @@ import pl.pmerdala.kursandroid.feature.splash.ui.SplashActivity
 abstract class ActivityBinderModule {
 
     @Binds
-    abstract fun activity(activity: AppCompatActivity):AppCompatActivity
+    abstract fun activity(activity: AppCompatActivity): AppCompatActivity
 
-    @ContributesAndroidInjector(modules = [SplashModule::class])
+    @ContributesAndroidInjector(modules =
+            [ConfigurationModule::class,
+            SplashModule::class]
+    )
     abstract fun bindSplashActivity(): SplashActivity
 }

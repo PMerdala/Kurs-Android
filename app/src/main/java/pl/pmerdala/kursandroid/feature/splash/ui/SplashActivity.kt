@@ -12,7 +12,7 @@ import pl.pmerdala.kursandroid.feature.splash.navigation.SplashRouter
 import pl.pmerdala.kursandroid.feature.splash.presentation.SplashPresenter
 import javax.inject.Inject
 
-class SplashActivity : BaseActivity(), SplashContract.View {
+class SplashActivity : BaseActivity() {
 
     @BindView(R.id.splash_image)
     lateinit var splashImage: ImageView
@@ -25,6 +25,11 @@ class SplashActivity : BaseActivity(), SplashContract.View {
     override fun onCreate(savedInstanceState: Bundle?) {
         super.onCreate(savedInstanceState)
         presenter.initialize()
+    }
+
+    override fun onResume() {
+        super.onResume()
+        presenter.visible()
     }
 
     override fun onDestroy() {
