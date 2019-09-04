@@ -74,6 +74,7 @@ dependencies {
     kapt Libs.daggerAndroidProcessor
     debugImplementation Libs.leakcanary
     testImplementation Libs.junit
+    testImplementation Libs.mockito
     androidTestImplementation Libs.testRunner
     androidTestImplementation Libs.espressoCore
 }

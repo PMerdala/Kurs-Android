@@ -11,6 +11,7 @@ object Versions{
     const val leakcanary = "1.5.4"
     const val butterKnife = "8.8.1"
     const val dagger = "2.14.1"
+    const val mockito = "2.16.0"
     const val compilerSdk =28
     const val minSdk = 17
     const val targetSdk = 28
@@ -36,6 +37,7 @@ object Libs {
     const val daggerAndroid = "com.google.dagger:dagger-android:${Versions.dagger}"
     const val daggerAndroidSupport = "com.google.dagger:dagger-android-support:${Versions.dagger}"
     const val daggerAndroidProcessor = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
+    const val mockito = "org.mockito:mockito-core:${Versions.mockito}"
 }
 
 object ClassPaths{
