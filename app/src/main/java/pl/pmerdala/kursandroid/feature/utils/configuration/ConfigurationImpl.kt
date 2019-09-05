@@ -1,7 +1,16 @@
 package pl.pmerdala.kursandroid.feature.utils.configuration
 
-class ConfigurationImpl : Configuration {
+import android.content.SharedPreferences
+
+class ConfigurationImpl(
+    private val sharedPreferences: SharedPreferences
+) : Configuration {
+
+    companion object{
+        const val PREFS_KEY_LOGGED_IN = "IsUserLoggedIn"
+    }
+
     override fun isUserLoggedIn(): Boolean {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        return sharedPreferences.getBoolean(PREFS_KEY_LOGGED_IN, false)
     }
 }

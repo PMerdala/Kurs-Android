@@ -72,6 +72,7 @@ dependencies {
     api Libs.daggerAndroid
 //    api Libs.daggerAndroidSupport
     kapt Libs.daggerAndroidProcessor
+    implementation Libs.hawk
     debugImplementation Libs.leakcanary
     testImplementation Libs.junit
     testImplementation Libs.mockito
