@@ -2,6 +2,7 @@ package pl.pmerdala.kursandroid.feature.utils.injection
 
 import dagger.Module
 import dagger.Provides
+import io.reactivex.disposables.CompositeDisposable
 import pl.pmerdala.kursandroid.feature.splash.SplashContract
 import pl.pmerdala.kursandroid.feature.splash.navigation.SplashRouter
 import pl.pmerdala.kursandroid.feature.splash.presentation.SplashPresenter
@@ -18,6 +19,7 @@ class SplashModule {
     @Provides
     fun presenter(
         router: SplashContract.Router,
-        configuration:Configuration
-    ): SplashContract.Presenter = SplashPresenter(router,configuration)
+        configuration:Configuration,
+        compositeDisposable:CompositeDisposable
+    ): SplashContract.Presenter = SplashPresenter(router,configuration,compositeDisposable)
 }

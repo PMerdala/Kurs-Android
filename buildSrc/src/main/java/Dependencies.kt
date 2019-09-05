@@ -18,6 +18,8 @@ object Versions{
     const val targetSdk = 28
     const val versionCode = 1
     const val versionName = "1.0"
+    const val rxJava = "2.2.12"
+    const val rxAndroid = "2.1.1"
 }
 
 object Libs {
@@ -40,6 +42,8 @@ object Libs {
     const val daggerAndroidProcessor = "com.google.dagger:dagger-android-processor:${Versions.dagger}"
     const val mockito = "org.mockito:mockito-core:${Versions.mockito}"
     const val hawk = "com.orhanobut:hawk:${Versions.hawk}"
+    const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
+    const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
 }
 
 object ClassPaths{

@@ -1,20 +1,16 @@
 package pl.pmerdala.kursandroid.feature.splash.presentation
 
-import org.junit.After
+import io.reactivex.disposables.CompositeDisposable
 import org.junit.Test
-
-import org.junit.Assert.*
-import org.junit.Before
+import org.mockito.ArgumentMatchers
 import org.mockito.Mock
-import org.mockito.Mockito.verify
-import org.mockito.Mockito.times
-import org.mockito.Mockito.`when`
 import org.mockito.Mockito
-import org.mockito.MockitoAnnotations
+import org.mockito.Mockito.*
+import pl.pmerdala.kursandroid.feature.splash.BaseTest
 import pl.pmerdala.kursandroid.feature.splash.SplashContract
 import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
 
-class SplashPresenterTest {
+class SplashPresenterTest : BaseTest() {
 
     @Mock
     private lateinit var router: SplashContract.Router
@@ -22,17 +18,21 @@ class SplashPresenterTest {
     @Mock
     private lateinit var configuration: Configuration
 
+
+    @Mock
+    private lateinit var compositeDisposable: CompositeDisposable
+
     private lateinit var presenter: SplashContract.Presenter
 
-    @Before
-    fun setup() {
-        MockitoAnnotations.initMocks(this)
-        presenter = SplashPresenter( router, configuration)
+    override fun setup() {
+        super.setup()
+        trampolineRxPlugin()
+        presenter = SplashPresenter(router, configuration, compositeDisposable)
     }
 
-    @After
-    fun tearDown() {
-        Mockito.verifyNoMoreInteractions(router, configuration)
+    override fun tearDown() {
+        super.tearDown()
+        Mockito.verifyNoMoreInteractions(router, configuration, compositeDisposable)
     }
 
     @Test
@@ -51,7 +51,8 @@ class SplashPresenterTest {
 
         presenter.visible()
 
-        verify(configuration,times(1)).isUserLoggedIn()
+        verify(compositeDisposable, times(1)).add(ArgumentMatchers.any())
+        verify(configuration, times(1)).isUserLoggedIn()
         verify(router, times(1)).navigateToLogin()
     }
 
@@ -61,7 +62,15 @@ class SplashPresenterTest {
 
         presenter.visible()
 
-        verify(configuration,times(1)).isUserLoggedIn()
+        verify(compositeDisposable, times(1)).add(ArgumentMatchers.any())
+        verify(configuration, times(1)).isUserLoggedIn()
         verify(router, times(1)).navigateToRepositories()
     }
+
+    @Test
+    fun `should stop disposable when user hide application`() {
+        presenter.hide()
+        verify(compositeDisposable, times(1)).clear()
+    }
+
 }
