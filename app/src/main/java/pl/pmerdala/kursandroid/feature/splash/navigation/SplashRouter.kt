@@ -1,13 +1,19 @@
 package pl.pmerdala.kursandroid.feature.splash.navigation
 
+import android.content.Intent
+import pl.pmerdala.kursandroid.feature.login.ui.LoginActivity
+import pl.pmerdala.kursandroid.feature.repositories.ui.RepositoriesActivity
 import pl.pmerdala.kursandroid.feature.splash.SplashContract
+import pl.pmerdala.kursandroid.feature.splash.ui.SplashActivity
 
-class SplashRouter:SplashContract.Router {
+class SplashRouter(
+    private val activity: SplashActivity
+):SplashContract.Router {
     override fun navigateToRepositories() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        activity.startActivity(RepositoriesActivity::class.java)
     }
 
     override fun navigateToLogin() {
-        TODO("not implemented") //To change body of created functions use File | Settings | File Templates.
+        activity.startActivity(LoginActivity::class.java)
     }
 }

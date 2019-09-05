@@ -50,6 +50,10 @@ android {
         sourceCompatibility JavaVersion.VERSION_1_8
         targetCompatibility JavaVersion.VERSION_1_8
     }
+
+    testOptions {
+        unitTests.returnDefaultValues = true
+    }
 }
 
 repositories {
@@ -66,6 +70,7 @@ dependencies {
     }
     implementation Libs.timber
     implementation Libs.butterKnife
+    implementation 'com.android.support.constraint:constraint-layout:1.1.3'
     kapt Libs.butterKnifeAnnotationProcessor
     api Libs.dagger
     kapt Libs.daggerCompiler

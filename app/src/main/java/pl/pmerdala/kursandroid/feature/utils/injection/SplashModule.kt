@@ -13,7 +13,7 @@ import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
 class SplashModule {
 
     @Provides
-    fun router(): SplashContract.Router = SplashRouter()
+    fun router(activity: SplashActivity): SplashContract.Router = SplashRouter(activity)
 
 
     @Provides

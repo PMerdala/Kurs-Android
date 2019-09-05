@@ -1,5 +1,6 @@
 package pl.pmerdala.kursandroid.feature.splash.ui
 
+import android.content.Intent
 import android.os.Bundle
 import android.widget.ImageView
 import butterknife.BindView
@@ -45,5 +46,10 @@ class SplashActivity : BaseActivity() {
     @OnClick(R.id.splash_image)
     fun splashImageClicked() {
         splashImage.animate().rotation(180.0f).start()
+    }
+
+    fun startActivity(activityClass:Class<*>){
+        val intent = Intent(this,activityClass)
+        startActivity(intent)
     }
 }
