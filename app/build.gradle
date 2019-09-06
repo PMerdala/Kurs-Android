@@ -85,6 +85,14 @@ dependencies {
     debugImplementation Libs.leakcanary
     testImplementation Libs.junit
     testImplementation Libs.mockito
+    testImplementation Libs.mockitoKotlin
+    testImplementation Libs.powermockApi
+    testImplementation Libs.powermockJunit
+    //testImplementation Libs.powermockRuleAgent
     androidTestImplementation Libs.testRunner
     androidTestImplementation Libs.espressoCore
+    //androidTestImplementation("com.nhaarman:mockito-kotlin-kt1.1:1.5.0", {
+    //exclude group: 'org.mockito', module: 'mockito-core'
+    //})
+    //androidTestImplementation 'org.mockito:mockito-android:2.11.0'
 }
