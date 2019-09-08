@@ -48,8 +48,4 @@ class SplashActivity : BaseActivity() {
         splashImage.animate().rotation(180.0f).start()
     }
 
-    fun startActivity(activityClass:Class<*>){
-        val intent = Intent(this,activityClass)
-        startActivity(intent)
-    }
 }
