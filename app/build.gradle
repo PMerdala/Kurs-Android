@@ -85,6 +85,8 @@ dependencies {
     //https://github.com/ReactiveX/RxJava/tree/2.x
     implementation Libs.rxJava
     implementation Libs.rxAndroid
+    //http://airbnb.io/lottie/
+    implementation Libs.lottie
     debugImplementation Libs.leakcanary
     testImplementation Libs.junit
     testImplementation Libs.mockito

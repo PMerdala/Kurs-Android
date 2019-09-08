@@ -20,9 +20,10 @@ object Versions {
     const val versionName = "1.0"
     const val rxJava = "2.2.12"
     const val rxAndroid = "2.1.1"
-    const val powermock = "2.0.2"
+//    const val powermock = "2.0.2"
     const val mockitoKotlin = "1.6.0"
     const val parceler = "1.1.12"
+    const val lottie = "2.7.0"
 }
 
 object Libs {
@@ -49,13 +50,14 @@ object Libs {
     const val hawk = "com.orhanobut:hawk:${Versions.hawk}"
     const val rxJava = "io.reactivex.rxjava2:rxjava:${Versions.rxJava}"
     const val rxAndroid = "io.reactivex.rxjava2:rxandroid:${Versions.rxAndroid}"
-    const val powermockApi = "org.powermock:powermock-api-mockito2:${Versions.powermock}"
-    const val powermockJunit = "org.powermock:powermock-module-junit4:${Versions.powermock}"
-    const val powermockRuleAgent =
-        "org.powermock:powermock-module-junit4-rule-agent:${Versions.powermock}"
+//    const val powermockApi = "org.powermock:powermock-api-mockito2:${Versions.powermock}"
+//    const val powermockJunit = "org.powermock:powermock-module-junit4:${Versions.powermock}"
+//    const val powermockRuleAgent =
+//        "org.powermock:powermock-module-junit4-rule-agent:${Versions.powermock}"
     const val mockitoKotlin = "com.nhaarman:mockito-kotlin-kt1.1:${Versions.mockitoKotlin}"
     const val parcelerApi = "org.parceler:parceler-api:${Versions.parceler}"
     const val parcelerProcessor = "org.parceler:parceler:${Versions.parceler}"
+    const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
 }
 
 object ClassPaths {
