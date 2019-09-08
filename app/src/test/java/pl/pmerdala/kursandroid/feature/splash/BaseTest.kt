@@ -12,7 +12,7 @@ abstract class BaseTest {
 
     @Before
     open fun setup(){
-        MockitoAnnotations.initMocks(this);
+        MockitoAnnotations.initMocks(this)
     }
 
     @After
