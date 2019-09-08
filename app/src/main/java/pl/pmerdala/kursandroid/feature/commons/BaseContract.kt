@@ -1,8 +1,8 @@
 package pl.pmerdala.kursandroid.feature.commons
 
 interface BaseContract {
-    interface Presenter{
+    interface Presenter {
         fun initialize()
-    fun clear()
+        fun clear()
     }
 }
