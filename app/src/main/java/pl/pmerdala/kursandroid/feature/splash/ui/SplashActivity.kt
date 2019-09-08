@@ -15,9 +15,6 @@ import javax.inject.Inject
 
 class SplashActivity : BaseActivity() {
 
-    @BindView(R.id.splash_image)
-    lateinit var splashImage: ImageView
-
     @Inject
     lateinit var presenter: SplashContract.Presenter
 
@@ -41,11 +38,6 @@ class SplashActivity : BaseActivity() {
     override fun onDestroy() {
         presenter.clear()
         super.onDestroy()
-    }
-
-    @OnClick(R.id.splash_image)
-    fun splashImageClicked() {
-        splashImage.animate().rotation(180.0f).start()
     }
 
 }
