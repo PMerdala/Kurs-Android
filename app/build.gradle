@@ -77,6 +77,9 @@ dependencies {
     api Libs.daggerAndroid
 //    api Libs.daggerAndroidSupport
     kapt Libs.daggerAndroidProcessor
+    //https://github.com/johncarl81/parceler
+    implementation Libs.parcelerApi
+    kapt Libs.parcelerProcessor
     //https://github.com/orhanobut/hawk
     implementation Libs.hawk
     //https://github.com/ReactiveX/RxJava/tree/2.x

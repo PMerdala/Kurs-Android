@@ -7,19 +7,23 @@ import pl.pmerdala.kursandroid.feature.splash.SplashContract
 import pl.pmerdala.kursandroid.feature.splash.navigation.SplashRouter
 import pl.pmerdala.kursandroid.feature.splash.presentation.SplashPresenter
 import pl.pmerdala.kursandroid.feature.splash.ui.SplashActivity
+import pl.pmerdala.kursandroid.feature.tools.parcel.ParcelableProvider
 import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
 
 @Module
 class SplashModule {
 
     @Provides
-    fun router(activity: SplashActivity): SplashContract.Router = SplashRouter(activity)
+    fun router(
+        activity: SplashActivity,
+        parcelableProvider: ParcelableProvider
+    ): SplashContract.Router = SplashRouter(activity, parcelableProvider)
 
 
     @Provides
     fun presenter(
         router: SplashContract.Router,
-        configuration:Configuration,
-        compositeDisposable:CompositeDisposable
-    ): SplashContract.Presenter = SplashPresenter(router,configuration,compositeDisposable)
+        configuration: Configuration,
+        compositeDisposable: CompositeDisposable
+    ): SplashContract.Presenter = SplashPresenter(router, configuration, compositeDisposable)
 }

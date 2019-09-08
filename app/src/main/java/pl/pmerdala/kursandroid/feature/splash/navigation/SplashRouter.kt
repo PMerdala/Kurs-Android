@@ -1,13 +1,17 @@
 package pl.pmerdala.kursandroid.feature.splash.navigation
 
 import android.content.Intent
+import org.parceler.Parcels
 import pl.pmerdala.kursandroid.feature.login.ui.LoginActivity
 import pl.pmerdala.kursandroid.feature.repositories.ui.RepositoriesActivity
 import pl.pmerdala.kursandroid.feature.splash.SplashContract
 import pl.pmerdala.kursandroid.feature.splash.ui.SplashActivity
+import pl.pmerdala.kursandroid.feature.tools.parcel.ParcelableProvider
+import pl.pmerdala.kursandroid.feature.utils.configuration.StringConstants
 
 class SplashRouter(
-    private val activity: SplashActivity
+    private val activity: SplashActivity,
+    private val parcelableProvider: ParcelableProvider
 ) : SplashContract.Router {
     override fun navigateToRepositories() {
         activity.startActivity(
@@ -15,7 +19,8 @@ class SplashRouter(
             listOf(
                 Intent.FLAG_ACTIVITY_NEW_TASK,
                 Intent.FLAG_ACTIVITY_CLEAR_TASK
-            )
+            ),
+            Pair(StringConstants.EXTRA_KEY_EXAMPLE,parcelableProvider.from(2))
         )
     }
 

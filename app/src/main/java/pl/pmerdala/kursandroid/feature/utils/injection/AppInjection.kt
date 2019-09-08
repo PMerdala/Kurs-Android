@@ -9,6 +9,8 @@ import dagger.Provides
 import dagger.android.AndroidInjectionModule
 import io.reactivex.disposables.CompositeDisposable
 import pl.pmerdala.kursandroid.BaseApplication
+import pl.pmerdala.kursandroid.feature.tools.parcel.ParcelableProvider
+import pl.pmerdala.kursandroid.feature.tools.parcel.ParcelableProviderImpl
 import javax.inject.Singleton
 
 @Module
@@ -19,6 +21,10 @@ class AppModule {
     @Provides
     fun compositeDisposable():CompositeDisposable
             = CompositeDisposable()
+
+    @Provides
+    fun parcelableProvider():ParcelableProvider
+            = ParcelableProviderImpl()
 }
 
 @Singleton
