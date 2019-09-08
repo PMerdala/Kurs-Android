@@ -31,13 +31,15 @@ class SplashRouterTest : BaseTest(){
     @Test
     fun `should navigate to login activity when navigateToLogin is called`(){
         router.navigateToLogin()
-        verify(activity, times(1)).startActivity(LoginActivity::class.java)
+        verify(activity, times(1)).startActivity(LoginActivity::class.java,
+            listOf(Intent.FLAG_ACTIVITY_NEW_TASK,Intent.FLAG_ACTIVITY_CLEAR_TASK))
     }
 
     @Test
     fun `should navigate to respositories activity when navigateToRepositories is called`(){
         router.navigateToRepositories()
-        verify(activity, times(1)).startActivity(RepositoriesActivity::class.java)
+        verify(activity, times(1)).startActivity(RepositoriesActivity::class.java,
+            listOf(Intent.FLAG_ACTIVITY_NEW_TASK,Intent.FLAG_ACTIVITY_CLEAR_TASK))
     }
 
 

@@ -8,12 +8,24 @@ import pl.pmerdala.kursandroid.feature.splash.ui.SplashActivity
 
 class SplashRouter(
     private val activity: SplashActivity
-):SplashContract.Router {
+) : SplashContract.Router {
     override fun navigateToRepositories() {
-        activity.startActivity(RepositoriesActivity::class.java)
+        activity.startActivity(
+            RepositoriesActivity::class.java,
+            listOf(
+                Intent.FLAG_ACTIVITY_NEW_TASK,
+                Intent.FLAG_ACTIVITY_CLEAR_TASK
+            )
+        )
     }
 
     override fun navigateToLogin() {
-        activity.startActivity(LoginActivity::class.java)
+        activity.startActivity(
+            LoginActivity::class.java,
+            listOf(
+                Intent.FLAG_ACTIVITY_NEW_TASK,
+                Intent.FLAG_ACTIVITY_CLEAR_TASK
+            )
+        )
     }
 }
