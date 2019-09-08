@@ -15,6 +15,7 @@ import pl.pmerdala.kursandroid.feature.splash.ui.SplashActivity
 import pl.pmerdala.kursandroid.feature.tools.parcel.ParcelableProvider
 import pl.pmerdala.kursandroid.feature.utils.configuration.StringConstants
 import org.mockito.Mockito.`when`
+import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
 
 class SplashRouterTest : BaseTest() {
 
@@ -27,13 +28,17 @@ class SplashRouterTest : BaseTest() {
     @Mock
     private lateinit var parcelable: Parcelable
 
+    @Mock
+    private lateinit var configuration: Configuration
+
     private lateinit var router: SplashContract.Router
 
     override fun setup() {
         super.setup()
         router = SplashRouter(
             activity,
-            parcelableProvider
+            parcelableProvider,
+            configuration
             )
     }
 
@@ -41,7 +46,8 @@ class SplashRouterTest : BaseTest() {
         super.tearDown()
         verifyNoMoreInteractions(
             activity,
-            parcelableProvider
+            parcelableProvider,
+            configuration
         )
     }
 
@@ -59,10 +65,12 @@ class SplashRouterTest : BaseTest() {
 
     @Test
     fun `should navigate to respositories activity when navigateToRepositories is called`() {
-        `when`(parcelableProvider.from(2)).thenReturn(parcelable)
+        val from = 12
+        `when`(configuration.exampleExtra).thenReturn(from)
+        `when`(parcelableProvider.from(from)).thenReturn(parcelable)
         router.navigateToRepositories()
-
-        verify(parcelableProvider,times(1)).from(2)
+        verify(parcelableProvider,times(1)).from(from)
+        verify(configuration,times(1)).exampleExtra
         verify(activity, times(1)).startActivity(
             RepositoriesActivity::class.java,
             listOf(

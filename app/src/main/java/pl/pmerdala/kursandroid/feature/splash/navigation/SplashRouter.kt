@@ -7,11 +7,13 @@ import pl.pmerdala.kursandroid.feature.repositories.ui.RepositoriesActivity
 import pl.pmerdala.kursandroid.feature.splash.SplashContract
 import pl.pmerdala.kursandroid.feature.splash.ui.SplashActivity
 import pl.pmerdala.kursandroid.feature.tools.parcel.ParcelableProvider
+import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
 import pl.pmerdala.kursandroid.feature.utils.configuration.StringConstants
 
 class SplashRouter(
     private val activity: SplashActivity,
-    private val parcelableProvider: ParcelableProvider
+    private val parcelableProvider: ParcelableProvider,
+    private val configuration: Configuration
 ) : SplashContract.Router {
     override fun navigateToRepositories() {
         activity.startActivity(
@@ -20,7 +22,12 @@ class SplashRouter(
                 Intent.FLAG_ACTIVITY_NEW_TASK,
                 Intent.FLAG_ACTIVITY_CLEAR_TASK
             ),
-            Pair(StringConstants.EXTRA_KEY_EXAMPLE,parcelableProvider.from(2))
+            Pair(
+                StringConstants.EXTRA_KEY_EXAMPLE,
+                parcelableProvider.from(
+                    configuration.exampleExtra
+                )
+            )
         )
     }
 
