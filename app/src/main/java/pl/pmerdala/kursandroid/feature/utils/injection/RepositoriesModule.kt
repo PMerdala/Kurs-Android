@@ -5,6 +5,7 @@ import dagger.Provides
 import pl.pmerdala.kursandroid.feature.repositories.RepositoriesContract
 import pl.pmerdala.kursandroid.feature.repositories.navigation.RepositoriesRouter
 import pl.pmerdala.kursandroid.feature.repositories.presentation.RepositoriesPresenter
+import pl.pmerdala.kursandroid.feature.repositories.ui.RepositoriesActivity
 
 @Module
 class RepositoriesModule {
@@ -12,5 +13,8 @@ class RepositoriesModule {
     fun router(): RepositoriesContract.Router = RepositoriesRouter()
 
     @Provides
-    fun presenter():RepositoriesContract.Presenter = RepositoriesPresenter()
+    fun presenter(
+        activity: RepositoriesActivity,
+        router: RepositoriesContract.Router
+    ):RepositoriesContract.Presenter = RepositoriesPresenter(activity,router)
 }

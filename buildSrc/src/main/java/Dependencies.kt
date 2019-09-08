@@ -24,6 +24,7 @@ object Versions {
     const val mockitoKotlin = "1.6.0"
     const val parceler = "1.1.12"
     const val lottie = "2.7.0"
+    const val rxPermission = "0.10.2"
 }
 
 object Libs {
@@ -58,6 +59,7 @@ object Libs {
     const val parcelerApi = "org.parceler:parceler-api:${Versions.parceler}"
     const val parcelerProcessor = "org.parceler:parceler:${Versions.parceler}"
     const val lottie = "com.airbnb.android:lottie:${Versions.lottie}"
+    const val rxPermission = "com.github.tbruyelle:rxpermissions:${Versions.rxPermission}"
 }
 
 object ClassPaths {

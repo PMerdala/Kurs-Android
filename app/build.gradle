@@ -87,6 +87,8 @@ dependencies {
     implementation Libs.rxAndroid
     //http://airbnb.io/lottie/
     implementation Libs.lottie
+    //https://github.com/tbruyelle/RxPermissions
+    implementation Libs.rxPermission
     debugImplementation Libs.leakcanary
     testImplementation Libs.junit
     testImplementation Libs.mockito
