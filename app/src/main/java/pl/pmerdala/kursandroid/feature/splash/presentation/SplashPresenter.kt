@@ -16,7 +16,7 @@ class SplashPresenter(
     SplashContract.Presenter {
 
     companion object {
-        const val TIMEOUT = 1500L
+        const val TIMEOUT = 3500L
     }
 
     override fun initialize() = Unit
