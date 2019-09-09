@@ -2,10 +2,13 @@ package pl.pmerdala.kursandroid.feature.utils.injection
 
 import dagger.Module
 import dagger.Provides
+import io.reactivex.disposables.CompositeDisposable
 import pl.pmerdala.kursandroid.feature.login.LoginContract
 import pl.pmerdala.kursandroid.feature.login.navigation.LoginRouter
 import pl.pmerdala.kursandroid.feature.login.presentation.LoginPresenter
 import pl.pmerdala.kursandroid.feature.login.ui.LoginActivity
+import pl.pmerdala.kursandroid.feature.tools.permissions.PermissionsHelper
+import pl.pmerdala.kursandroid.feature.tools.permissions.PermissionsHelperImpl
 
 @Module
 class LoginModule {
@@ -15,8 +18,13 @@ class LoginModule {
     ):LoginContract.Router = LoginRouter(activity)
 
     @Provides
+    fun permissionsHelper(activity: LoginActivity): PermissionsHelper = PermissionsHelperImpl(activity)
+
+    @Provides
     fun presenter(
         activity: LoginActivity,
-        router: LoginContract.Router
-    ):LoginContract.Presenter = LoginPresenter(activity,router)
+        router: LoginContract.Router,
+        permissionsHelper: PermissionsHelper,
+        compositeDisposable: CompositeDisposable
+    ):LoginContract.Presenter = LoginPresenter(activity,router,permissionsHelper,compositeDisposable)
 }

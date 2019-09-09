@@ -2,13 +2,13 @@ package pl.pmerdala.kursandroid.feature.login.ui
 
 import android.support.v7.app.AppCompatActivity
 import android.os.Bundle
+import android.widget.Toast
 import pl.pmerdala.kursandroid.R
 import pl.pmerdala.kursandroid.feature.commons.ui.BaseActivity
 import pl.pmerdala.kursandroid.feature.login.LoginContract
 import javax.inject.Inject
 
 class LoginActivity : BaseActivity(),LoginContract.View {
-
     @Inject
     lateinit var presenter:LoginContract.Presenter
 
@@ -24,4 +24,8 @@ class LoginActivity : BaseActivity(),LoginContract.View {
         presenter.clear()
         super.onDestroy()
     }
+    override fun showMessage(message: String) {
+        Toast.makeText(this,message,Toast.LENGTH_LONG).show()
+    }
+
 }
