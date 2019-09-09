@@ -15,24 +15,25 @@ class LoginPresenter(
     private val compositeDisposable: CompositeDisposable
 ) : LoginContract.Presenter {
 
-    companion object{
-        const val NO_PERMISSIONS_MESSAGE="You have to accept permissions to continue"
+    companion object {
+        const val NO_PERMISSIONS_MESSAGE = "You have to accept permissions to continue"
     }
+
     override fun initialize() {
         compositeDisposable.add(
             permissionsHelper
                 .request(Manifest.permission.CAMERA)
                 .subscribeOn(Schedulers.newThread())
                 .observeOn(AndroidSchedulers.mainThread())
+                .doOnNext {
+                    if (!it) {
+                        router.finish()
+                        view.showMessage(NO_PERMISSIONS_MESSAGE)
+                    }
+                }
+                .filter { it }
                 .subscribe(
-                    {
-                        if (it) {
-                            Timber.d("All Permissions granted!")
-                        }else{
-                            router.finish()
-                            view.showMessage(NO_PERMISSIONS_MESSAGE)
-                        }
-                    },
+                    { Timber.d("All Permissions granted!") },
                     { Timber.e(it) }
                 )
         )
