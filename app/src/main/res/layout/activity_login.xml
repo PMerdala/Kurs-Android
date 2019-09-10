@@ -4,10 +4,17 @@
     android:layout_height="match_parent">
 
     <EditText
-        android:id="@+id/login_name"
+        android:id="@+id/login_edit_text"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_centerInParent="true"
-        android:hint="login name"
+        android:hint="Enter Github username"
         />
+    <Button
+        android:id="@+id/login_button"
+        android:layout_width="match_parent"
+        android:layout_height="wrap_content"
+        android:text="Login"
+        android:layout_marginTop="16dp"
+        android:layout_below="@id/login_edit_text"/>
 </RelativeLayout>
