@@ -8,13 +8,17 @@ import io.reactivex.functions.BiFunction
 import io.reactivex.schedulers.Schedulers
 import pl.pmerdala.kursandroid.feature.login.LoginContract
 import pl.pmerdala.kursandroid.feature.tools.permissions.PermissionsHelper
+import pl.pmerdala.kursandroid.feature.utils.api.UsersService
+import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
 import timber.log.Timber
 
 class LoginPresenter(
     private val view: LoginContract.View,
     private val router: LoginContract.Router,
     private val permissionsHelper: PermissionsHelper,
-    private val compositeDisposable: CompositeDisposable
+    private val usersService: UsersService,
+    private val compositeDisposable: CompositeDisposable,
+    private val configuration: Configuration
 ) : LoginContract.Presenter {
 
     companion object {
@@ -26,10 +30,19 @@ class LoginPresenter(
             getCombinedObservable()
                 .map { view.getUsername() }
                 .filter { it.isNotEmpty() }
-                .subscribeOn(Schedulers.newThread())
-                .observeOn(AndroidSchedulers.mainThread())
+                .flatMap {
+                    usersService.user(it)
+                        .subscribeOn(Schedulers.io())
+                        .observeOn(AndroidSchedulers.mainThread())
+                }
+                .distinct()
                 .subscribe(
-                    { Timber.d("All Permissions granted and login clicked with username: $it!") },
+                    {
+                        val login = it.username
+                        Timber.d("Request is successfull with user login: $login")
+                        configuration.usertLogin = login
+                        router.navigateToRepositories()
+                    },
                     { Timber.e(it) }
                 )
         )

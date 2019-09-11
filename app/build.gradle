@@ -54,6 +54,10 @@ android {
     testOptions {
         unitTests.returnDefaultValues = true
     }
+
+    applicationVariants.all{
+        buildConfigField 'String', 'BASE_URL', KURS_APP_BASE_URL
+    }
 }
 
 repositories {
@@ -90,6 +94,11 @@ dependencies {
     implementation Libs.rxPermission
     //https://github.com/JakeWharton/RxBinding
     implementation Libs.rxBinding
+    //
+    implementation Libs.retrofit
+    implementation Libs.retrofitRxJava
+    implementation Libs.retrofitGson
+    //
     debugImplementation Libs.leakcanary
     testImplementation Libs.junit
     testImplementation Libs.mockito

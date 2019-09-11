@@ -13,5 +13,6 @@ class LoginContract:BaseContract {
     interface Presenter:BaseContract.Presenter
     interface Router {
         fun finish()
+        fun navigateToRepositories()
     }
 }
