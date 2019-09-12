@@ -55,6 +55,8 @@ android {
         unitTests.returnDefaultValues = true
     }
 
+    // ~/.gradle/gradle.properties należy dodać wpis
+    //KURS_APP_BASE_URL="https://api.github.com"
     applicationVariants.all{
         buildConfigField 'String', 'BASE_URL', KURS_APP_BASE_URL
     }
