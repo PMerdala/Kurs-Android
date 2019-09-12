@@ -1,8 +1,11 @@
 package pl.pmerdala.kursandroid.feature.utils.configuration
 
+import android.content.SharedPreferences
 import com.orhanobut.hawk.Hawk
 
-class ConfigurationImpl() : Configuration {
+class ConfigurationImpl(
+    private var sharedPreferences: SharedPreferences
+) : Configuration {
 
     companion object{
         const val PREFS_KEY_LOGGED_IN = "IsUserLoggedIn"
@@ -19,10 +22,10 @@ class ConfigurationImpl() : Configuration {
         set(value){
             if (value.isNotEmpty() && value.isNotBlank()) {
                 Hawk.put(PREFS_KEY_USER_LOGIN, value)
-                Hawk.put(PREFS_KEY_LOGGED_IN, true)
+                sharedPreferences.edit().putBoolean(PREFS_KEY_LOGGED_IN, true).apply()
             }else{
                 Hawk.delete(PREFS_KEY_USER_LOGIN)
-                Hawk.delete(PREFS_KEY_LOGGED_IN)
+                sharedPreferences.edit().remove(PREFS_KEY_LOGGED_IN).apply()
             }
         }
 }
