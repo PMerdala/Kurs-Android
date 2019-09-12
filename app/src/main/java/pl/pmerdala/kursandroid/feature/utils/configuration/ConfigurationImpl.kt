@@ -17,7 +17,12 @@ class ConfigurationImpl() : Configuration {
     override var usertLogin: String
         get()=Hawk.get<String>(PREFS_KEY_USER_LOGIN, "")
         set(value){
-            Hawk.put(PREFS_KEY_USER_LOGIN,value)
-            Hawk.put(PREFS_KEY_USER_LOGIN,true)
+            if (value.isNotEmpty() && value.isNotBlank()) {
+                Hawk.put(PREFS_KEY_USER_LOGIN, value)
+                Hawk.put(PREFS_KEY_LOGGED_IN, true)
+            }else{
+                Hawk.delete(PREFS_KEY_USER_LOGIN)
+                Hawk.delete(PREFS_KEY_LOGGED_IN)
+            }
         }
 }

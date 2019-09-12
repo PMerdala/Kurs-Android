@@ -24,6 +24,7 @@ class ConfigurationImplTest {
 
     @Test
     fun `shouldReturnFalseAsDefaultValueWhenIsUserLoggedInCallWithoutLogin`() {
+        configuration.usertLogin = ""
         val value:Boolean = configuration.isUserLoggedIn()
         assertFalse("spodziewano się wartości false", value)
     }
