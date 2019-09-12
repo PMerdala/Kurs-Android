@@ -27,6 +27,7 @@ object Versions {
     const val rxPermission = "0.10.2"
     const val rxBinding="2.2.0"
     const val retrofit="2.6.1"
+    const val chuckretrofit = "1.1.0"
 }
 
 object Libs {
@@ -66,6 +67,8 @@ object Libs {
     const val retrofit = "com.squareup.retrofit2:retrofit:${Versions.retrofit}"
     const val retrofitRxJava = "com.squareup.retrofit2:adapter-rxjava2:${Versions.retrofit}"
     const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
+    const val chuckretrofit = "com.readystatesoftware.chuck:library:${Versions.chuckretrofit}"
+    const val supportDesign = "com.android.support:design:${Versions.support}"
 }
 
 object ClassPaths {

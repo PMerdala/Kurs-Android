@@ -102,6 +102,9 @@ dependencies {
     implementation Libs.retrofitGson
     //
     debugImplementation Libs.leakcanary
+    //https://github.com/jgilfelt/chuck
+    debugImplementation Libs.chuckretrofit
+    debugImplementation Libs.supportDesign
     testImplementation Libs.junit
     testImplementation Libs.mockito
     testImplementation Libs.mockitoKotlin

@@ -35,7 +35,7 @@ class ReleaseTree : Timber.Tree() {
             do {
                 val end = Math.min(newline, i + MAX_LOG_LENGTH)
                 val part = message.substring(i, end)
-                logTo(priority, tag, message)
+                logTo(priority, tag, part)
                 i = end
             } while (i < newline)
             i++
