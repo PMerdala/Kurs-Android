@@ -28,6 +28,7 @@ object Versions {
     const val rxBinding="2.2.0"
     const val retrofit="2.6.1"
     const val chuckretrofit = "1.1.0"
+    const val stetho ="1.5.1"
 }
 
 object Libs {
@@ -69,6 +70,8 @@ object Libs {
     const val retrofitGson = "com.squareup.retrofit2:converter-gson:${Versions.retrofit}"
     const val chuckretrofit = "com.readystatesoftware.chuck:library:${Versions.chuckretrofit}"
     const val supportDesign = "com.android.support:design:${Versions.support}"
+    const val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
+    const val stethoNetwork = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"
 }
 
 object ClassPaths {

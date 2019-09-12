@@ -100,6 +100,9 @@ dependencies {
     implementation Libs.retrofit
     implementation Libs.retrofitRxJava
     implementation Libs.retrofitGson
+    //http://facebook.github.io/stetho/
+    implementation Libs.stetho
+    implementation Libs.stethoNetwork
     //
     debugImplementation Libs.leakcanary
     //https://github.com/jgilfelt/chuck

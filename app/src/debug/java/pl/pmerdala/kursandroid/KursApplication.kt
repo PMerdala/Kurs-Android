@@ -1,5 +1,6 @@
 package pl.pmerdala.kursandroid
 
+import com.facebook.stetho.Stetho
 import com.squareup.leakcanary.LeakCanary
 import timber.log.Timber
 
@@ -12,6 +13,7 @@ class KursApplication : BaseApplication(){
             return;
         }
         LeakCanary.install(this)
+        Stetho.initializeWithDefaults(this)
         // Normal app init code ...
         super.onCreate()
     }
