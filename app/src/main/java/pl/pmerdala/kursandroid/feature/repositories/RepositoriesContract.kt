@@ -5,7 +5,7 @@ import pl.pmerdala.kursandroid.feature.commons.BaseContract
 
 class RepositoriesContract:BaseContract {
     interface View{
-        fun setList(repositoryDatas: List<RepositoryData>);
+        fun updateRepos(repositoryDatas: List<RepositoryData>);
     }
     interface Presenter:BaseContract.Presenter
     interface Router

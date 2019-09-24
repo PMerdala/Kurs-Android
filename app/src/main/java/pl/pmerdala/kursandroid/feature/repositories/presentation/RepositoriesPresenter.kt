@@ -1,10 +1,9 @@
 package pl.pmerdala.kursandroid.feature.repositories.presentation
 
-import com.orhanobut.hawk.Hawk
 import io.reactivex.android.schedulers.AndroidSchedulers
 import io.reactivex.disposables.CompositeDisposable
 import io.reactivex.schedulers.Schedulers
-import pl.pmerdala.kursandroid.feature.login.presentation.LoginPresenter
+import pl.pmerdala.kursandroid.data.RepositoryData
 import pl.pmerdala.kursandroid.feature.repositories.RepositoriesContract
 import pl.pmerdala.kursandroid.feature.utils.api.RepositoriesService
 import pl.pmerdala.kursandroid.feature.utils.configuration.Configuration
@@ -18,15 +17,26 @@ class RepositoriesPresenter(
     private val compositeDisposable: CompositeDisposable
 ) : RepositoriesContract.Presenter {
     override fun initialize() {
+        val userLogin = configuration.usertLogin
         compositeDisposable.add(
             repositoriesService
-                .repositories(configuration.usertLogin)
+                .repositories(userLogin)
+                .distinct()
+                .flatMapIterable { it }
+                .map { RepositoryData(
+                    it.name,
+                    it.description?:"",
+                    it.imageUrl
+                    )
+                }
+                .toList()
                 .subscribeOn(Schedulers.io())
                 .observeOn(AndroidSchedulers.mainThread())
-                .distinct()
-                .subscribe {
-                    view.setList(it)
-                }
+                .subscribe(
+                    {view.updateRepos(it)
+                    Timber.d("Rozmiar przesłanych danych ${it.size}")},
+                    {Timber.e(it)}
+                )
         )
     }
 

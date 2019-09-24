@@ -1,4 +1,4 @@
-package pl.pmerdala.kursandroid.data
+package pl.pmerdala.kursandroid.data.api
 
 import com.google.gson.annotations.SerializedName
 

@@ -8,7 +8,7 @@ import org.junit.Test
 import org.mockito.ArgumentMatchers
 import org.mockito.Mock
 import org.mockito.Mockito.*
-import pl.pmerdala.kursandroid.data.UserResponse
+import pl.pmerdala.kursandroid.data.api.UserResponse
 import pl.pmerdala.kursandroid.feature.login.LoginContract
 import pl.pmerdala.kursandroid.feature.splash.BaseTest
 import pl.pmerdala.kursandroid.feature.tools.permissions.PermissionsHelper
