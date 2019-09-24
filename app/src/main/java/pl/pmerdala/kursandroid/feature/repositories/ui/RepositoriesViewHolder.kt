@@ -6,6 +6,7 @@ import android.widget.ImageView
 import android.widget.TextView
 import butterknife.BindView
 import butterknife.ButterKnife
+import com.bumptech.glide.Glide
 import pl.pmerdala.kursandroid.R
 import pl.pmerdala.kursandroid.data.RepositoryData
 
@@ -16,7 +17,7 @@ class RepositoriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     @BindView(R.id.repository_subtitle)
     lateinit var subtitleTextView: TextView
     @BindView(R.id.repository_image_view)
-    lateinit var imageView:ImageView
+    lateinit var repositoryImageView:ImageView
 
     init {
         ButterKnife.bind(this, itemView)
@@ -26,5 +27,8 @@ class RepositoriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView)
     fun bindModel(repositoryData: RepositoryData) = with(repositoryData) {
         titleTextView.text = title
         subtitleTextView.text = subtitle
+        Glide.with(itemView)
+            .load(imageUrl)
+            .into(repositoryImageView)
     }
 }

@@ -30,12 +30,14 @@ object Versions {
     const val chuckretrofit = "1.1.0"
     const val stetho ="1.5.1"
     const val glide = "4.9.0"
+    const val supportConstraint = "1.1.3"
 }
 
 object Libs {
     const val kotlinStdLib = "org.jetbrains.kotlin:kotlin-stdlib-jdk7:${Versions.kotlin}"
     const val supportAppcompat = "com.android.support:appcompat-v7:${Versions.support}"
     const val supportRecycler = "com.android.support:recyclerview-v7:${Versions.support}"
+    const val supportConstraint = "com.android.support.constraint:constraint-layout:${Versions.supportConstraint}"
     const val junit = "junit:junit:${Versions.junit}"
     const val testRunner = "com.android.support.test:runner:${Versions.testRunner}"
     const val espressoCore =

@@ -3,16 +3,17 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="wrap_content"
-    android:orientation="vertical">
+    android:orientation="vertical"
+    android:layout_marginBottom="@dimen/repository_margin">
 
     <ImageView
         android:id="@+id/repository_image_view"
         android:layout_width="@dimen/repository_image_size"
         android:layout_height="@dimen/repository_image_size"
-        android:scaleType="centerInside"
         android:layout_alignParentStart="true"
-        tools:src="@mipmap/ic_launcher"
-        />
+        android:contentDescription="@string/repository_image_view_content_description"
+        android:scaleType="centerInside"
+        tools:src="@mipmap/ic_launcher" />
 
     <TextView
         android:id="@+id/repository_title"
@@ -28,8 +29,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:gravity="center"
-        android:layout_alignBottom="@id/repository_image_view"
+        android:layout_alignBottom ="@id/repository_image_view"
         android:layout_toEndOf="@id/repository_image_view"
+        android:layout_below="@id/repository_title"
         tools:text = "testowa opis repozytorium"/>
 
 </RelativeLayout>

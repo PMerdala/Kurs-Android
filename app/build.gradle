@@ -71,6 +71,7 @@ dependencies {
     implementation Libs.kotlinStdLib
     implementation Libs.supportAppcompat
     implementation Libs.supportRecycler
+    implementation Libs.supportConstraint
     implementation(Libs.crashlytics) {
         transitive = true;
     }
