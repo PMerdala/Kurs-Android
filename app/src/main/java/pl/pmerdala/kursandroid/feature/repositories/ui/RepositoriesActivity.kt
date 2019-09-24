@@ -8,6 +8,7 @@ import android.view.View
 import android.view.ViewGroup
 import android.widget.TextView
 import butterknife.BindView
+import butterknife.ButterKnife
 import org.parceler.Parcels
 import pl.pmerdala.kursandroid.R
 import pl.pmerdala.kursandroid.feature.commons.ui.BaseActivity
@@ -24,11 +25,6 @@ class RepositoriesActivity : BaseActivity(), RepositoriesContract.View {
 
     @BindView(R.id.repositiries_list)
     lateinit var repositoriesList: RecyclerView
-
-    @BindView(R.id.repository_title)
-    lateinit var title: TextView
-    @BindView(R.id.repository_subtitle)
-    lateinit var subtitle: TextView
 
     override val layoutId: Int = R.layout.activity_repositories
 
@@ -83,11 +79,21 @@ class RepositoriesActivity : BaseActivity(), RepositoriesContract.View {
             viewHolder.bindModel((repositoryDatas[position]))
         }
 
-        inner class RepositoriesViewHolder(itemView: View) : RecyclerView.ViewHolder(itemView) {
+        inner class RepositoriesViewHolder : RecyclerView.ViewHolder {
+
+            constructor(itemView : View):super(itemView){
+                ButterKnife.bind(this,itemView)
+            }
+
+            @BindView(R.id.repository_title)
+            lateinit var title: TextView
+            @BindView(R.id.repository_subtitle)
+            lateinit var subtitle: TextView
+
 
             fun bindModel(repositoryData: RepositoryData) {
-                title.setText(repositoryData.title)
-                subtitle.setText(repositoryData.subtitle)
+                title?.setText(repositoryData.title)
+                subtitle?.setText(repositoryData.subtitle)
             }
         }
 
