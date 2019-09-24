@@ -103,6 +103,9 @@ dependencies {
     //http://facebook.github.io/stetho/
     implementation Libs.stetho
     implementation Libs.stethoNetwork
+    //https://github.com/bumptech/glide
+    implementation Libs.glide
+    annotationProcessor Libs.glideProcessor
     //
     debugImplementation Libs.leakcanary
     //https://github.com/jgilfelt/chuck

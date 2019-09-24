@@ -29,6 +29,7 @@ object Versions {
     const val retrofit="2.6.1"
     const val chuckretrofit = "1.1.0"
     const val stetho ="1.5.1"
+    const val glide = "4.9.0"
 }
 
 object Libs {
@@ -72,6 +73,8 @@ object Libs {
     const val supportDesign = "com.android.support:design:${Versions.support}"
     const val stetho = "com.facebook.stetho:stetho:${Versions.stetho}"
     const val stethoNetwork = "com.facebook.stetho:stetho-okhttp3:${Versions.stetho}"
+    const val glide = "com.github.bumptech.glide:glide:${Versions.glide}"
+    const val glideProcessor = "com.github.bumptech.glide:compiler:${Versions.glide}"
 }
 
 object ClassPaths {
