@@ -16,6 +16,7 @@ class RepositoriesPresenter(
     private val configuration:Configuration,
     private val compositeDisposable: CompositeDisposable
 ) : RepositoriesContract.Presenter {
+
     override fun initialize() {
         val userLogin = configuration.usertLogin
         compositeDisposable.add(
@@ -42,5 +43,9 @@ class RepositoriesPresenter(
 
     override fun clear() {
         compositeDisposable.clear()
+    }
+    override fun logoutClicked() {
+        configuration.clear()
+        router.navigateToLogin()
     }
 }

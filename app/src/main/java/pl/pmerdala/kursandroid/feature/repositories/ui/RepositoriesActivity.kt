@@ -4,6 +4,7 @@ import android.os.Bundle
 import android.os.Parcelable
 import android.support.v7.widget.RecyclerView
 import butterknife.BindView
+import butterknife.OnClick
 import org.parceler.Parcels
 import pl.pmerdala.kursandroid.R
 import pl.pmerdala.kursandroid.feature.commons.ui.BaseActivity
@@ -24,7 +25,7 @@ class RepositoriesActivity : BaseActivity(), RepositoriesContract.View {
     @Inject
     lateinit var layoutManager: RecyclerView.LayoutManager
 
-    @BindView(R.id.repositiries_list)
+    @BindView(R.id.repositories_list)
     lateinit var repositoriesList: RecyclerView
 
     override val layoutId: Int = R.layout.activity_repositories
@@ -43,6 +44,11 @@ class RepositoriesActivity : BaseActivity(), RepositoriesContract.View {
 
     override fun updateRepos(repositoryDatas: List<RepositoryData>) {
         repositoriesAdapter.updateData(repositoryDatas)
+    }
+
+    @OnClick(R.id.repositories_fab_logout)
+    fun logoutClicked(){
+        presenter.logoutClicked()
     }
 
     private fun initializeRecyclerView() {

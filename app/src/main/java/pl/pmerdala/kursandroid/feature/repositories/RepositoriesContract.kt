@@ -7,6 +7,10 @@ class RepositoriesContract:BaseContract {
     interface View{
         fun updateRepos(repositoryDatas: List<RepositoryData>);
     }
-    interface Presenter:BaseContract.Presenter
-    interface Router
+    interface Presenter:BaseContract.Presenter{
+        fun logoutClicked()
+    }
+    interface Router{
+        fun navigateToLogin()
+    }
 }

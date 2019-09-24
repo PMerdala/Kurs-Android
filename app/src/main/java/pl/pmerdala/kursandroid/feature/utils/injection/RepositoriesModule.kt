@@ -33,7 +33,7 @@ class RepositoriesModule {
     fun adapter(data:MutableList<RepositoryData>)= RepositoriesAdapter(data)
 
     @Provides
-    fun router(): RepositoriesContract.Router = RepositoriesRouter()
+    fun router(activity: RepositoriesActivity): RepositoriesContract.Router = RepositoriesRouter(activity)
 
     @Provides
     fun presenter(

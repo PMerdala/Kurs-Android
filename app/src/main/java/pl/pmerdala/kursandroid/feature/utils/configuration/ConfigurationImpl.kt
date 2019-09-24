@@ -6,6 +6,10 @@ import com.orhanobut.hawk.Hawk
 class ConfigurationImpl(
     private var sharedPreferences: SharedPreferences
 ) : Configuration {
+    override fun clear() {
+        Hawk.delete(PREFS_KEY_USER_LOGIN)
+        sharedPreferences.edit().remove(PREFS_KEY_LOGGED_IN).apply()
+    }
 
     companion object{
         const val PREFS_KEY_LOGGED_IN = "IsUserLoggedIn"
@@ -24,8 +28,7 @@ class ConfigurationImpl(
                 Hawk.put(PREFS_KEY_USER_LOGIN, value)
                 sharedPreferences.edit().putBoolean(PREFS_KEY_LOGGED_IN, true).apply()
             }else{
-                Hawk.delete(PREFS_KEY_USER_LOGIN)
-                sharedPreferences.edit().remove(PREFS_KEY_LOGGED_IN).apply()
+                clear()
             }
         }
 }
